@@ -1,1 +1,1 @@
-# FullStack-HastaneOtomasyonu
+# FullStack-HastaOtomasyonu
