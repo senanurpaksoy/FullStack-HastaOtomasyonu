@@ -1,0 +1,14 @@
+GET http://localhost:8089/api/v1/hasta
+###
+DELETE http://localhost:8089/api/v1/hasta/1
+
+###
+
+PUT http://localhost:8089/api/v1/hasta
+
+{
+    "id": 153,
+    "firstname": "hatice",
+    "lastname": "a",
+    "birthdate": "2023-09-18T00:21:45.646Z"
+  }

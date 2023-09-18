@@ -1,0 +1,10 @@
+com/hs/hastaservice/mapper/HastaMapper.class
+com/hs/hastaservice/HastaServiceApplication.class
+com/hs/hastaservice/service/impl/HastaServiceImpl.class
+com/hs/hastaservice/mapper/HastaMapperImpl.class
+com/hs/hastaservice/entity/Hasta.class
+com/hs/hastaservice/repository/HastaRepository.class
+com/hs/hastaservice/service/HastaService.class
+com/hs/hastaservice/dto/HastaDTO$HastaDTOBuilder.class
+com/hs/hastaservice/controller/HastaController.class
+com/hs/hastaservice/dto/HastaDTO.class

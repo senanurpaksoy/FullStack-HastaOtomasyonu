@@ -1,0 +1,8 @@
+/home/kolaysoft/IdeaProjects/hasta-service/src/main/java/com/hs/hastaservice/controller/HastaController.java
+/home/kolaysoft/IdeaProjects/hasta-service/src/main/java/com/hs/hastaservice/mapper/HastaMapper.java
+/home/kolaysoft/IdeaProjects/hasta-service/src/main/java/com/hs/hastaservice/service/impl/HastaServiceImpl.java
+/home/kolaysoft/IdeaProjects/hasta-service/src/main/java/com/hs/hastaservice/repository/HastaRepository.java
+/home/kolaysoft/IdeaProjects/hasta-service/src/main/java/com/hs/hastaservice/entity/Hasta.java
+/home/kolaysoft/IdeaProjects/hasta-service/src/main/java/com/hs/hastaservice/dto/HastaDTO.java
+/home/kolaysoft/IdeaProjects/hasta-service/src/main/java/com/hs/hastaservice/HastaServiceApplication.java
+/home/kolaysoft/IdeaProjects/hasta-service/src/main/java/com/hs/hastaservice/service/HastaService.java
