@@ -9,7 +9,12 @@ function HastaComponent() {
         lastname: '',
         birthdate: ''
     });
-    const [guncellenecekHasta, setGuncellenecekHasta] = useState(null);
+    const [guncellenecekHasta, setGuncellenecekHasta] = useState({
+        id:'',
+        firstname: '',
+        lastname: '',
+        birthdate: ''
+    });
 
     useEffect(() => {
         refreshHastaListesi();
@@ -28,7 +33,13 @@ function HastaComponent() {
             [name]: value
         });
     }
-
+    const handleInputChangeGuncel = (event) => {
+        const {name, value} = event.target;
+        setGuncellenecekHasta({
+            ...guncellenecekHasta,
+            [name]: value
+        });
+    }
     const handleHastaEkle = () => {
         HastaService.createHasta(yeniHasta).then(() => {
             refreshHastaListesi();
@@ -42,18 +53,13 @@ function HastaComponent() {
 
     const handleGuncellemeClick = (hasta) => {
         setGuncellenecekHasta(hasta);
-        setYeniHasta({
-            id : hasta.id,
-            firstname: hasta.firstname,
-            lastname: hasta.lastname,
-            birthdate: hasta.birthdate
-        });
+
     }
 
     const handleHastaGuncelle = () => {
         if (!guncellenecekHasta) return;
 
-        HastaService.updateHasta(guncellenecekHasta.id, yeniHasta)
+        HastaService.updateHasta(guncellenecekHasta.id, guncellenecekHasta)
             .then(() => {
                 refreshHastaListesi();
                 setGuncellenecekHasta(null);
@@ -75,7 +81,7 @@ function HastaComponent() {
     return (
         <div>
             <h1 className="text-center">Hasta Listesi</h1>
-            <form>
+            <form >
                 <input
                     type="text"
                     name="firstname"
@@ -97,13 +103,12 @@ function HastaComponent() {
                     value={yeniHasta.birthdate}
                     onChange={handleInputChange}
                 />
-                <button type="button" onClick={handleHastaEkle}>
-                    Hasta Ekle
-                </button>
+                <button type="button" onClick={handleHastaEkle}>Hasta Ekle</button>
             </form>
             <table className="table table-striped">
                 <thead>
                 <tr>
+                    <th>Hasta Id</th>
                     <th>Hasta First Name</th>
                     <th>Hasta Last Name</th>
                     <th>Hasta Birthdate</th>
@@ -113,9 +118,10 @@ function HastaComponent() {
                 <tbody>
                 {hastalar.map((hasta, index) => (
                     <tr key={index}>
+                        <td>{hasta.id}</td>
                         <td>{hasta.firstname}</td>
                         <td>{hasta.lastname}</td>
-                        <td>{hasta.birthdate.slice(0,10)}</td>
+                        <td>{hasta.birthdate}</td>
                         <td>
                             <button onClick={() => handleGuncellemeClick(hasta)}>Düzenle</button>
                             <button onClick={() => handleHastaSil(hasta.id)}>Sil</button>
@@ -130,20 +136,20 @@ function HastaComponent() {
                     <input
                         type="text"
                         name="firstname"
-                        value={yeniHasta.firstname}
-                        onChange={handleInputChange}
+                        value={guncellenecekHasta.firstname}
+                        onChange={handleInputChangeGuncel}
                     />
                     <input
                         type="text"
                         name="lastname"
-                        value={yeniHasta.lastname}
-                        onChange={handleInputChange}
+                        value={guncellenecekHasta.lastname}
+                        onChange={handleInputChangeGuncel}
                     />
                     <input
                         type="text"
                         name="birthdate"
-                        value={yeniHasta.birthdate}
-                        onChange={handleInputChange}
+                        value={guncellenecekHasta.birthdate}
+                        onChange={handleInputChangeGuncel}
                     />
                     <button onClick={handleHastaGuncelle}>Güncelle</button>
                 </div>
