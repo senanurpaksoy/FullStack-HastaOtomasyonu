@@ -4,6 +4,7 @@ import HastaService from '../service/HastaService';
 function HastaComponent() {
     const [hastalar, setHastalar] = useState([]);
     const [yeniHasta, setYeniHasta] = useState({
+        id:'',
         firstname: '',
         lastname: '',
         birthdate: ''
@@ -42,6 +43,7 @@ function HastaComponent() {
     const handleGuncellemeClick = (hasta) => {
         setGuncellenecekHasta(hasta);
         setYeniHasta({
+            id : hasta.id,
             firstname: hasta.firstname,
             lastname: hasta.lastname,
             birthdate: hasta.birthdate
@@ -55,11 +57,6 @@ function HastaComponent() {
             .then(() => {
                 refreshHastaListesi();
                 setGuncellenecekHasta(null);
-                setYeniHasta({
-                    firstname: '',
-                    lastname: '',
-                    birthdate: ''
-                });
             })
             .catch((error) => {
                 console.error("Güncelleme işlemi sırasında hata oluştu:", error);
@@ -118,7 +115,7 @@ function HastaComponent() {
                     <tr key={index}>
                         <td>{hasta.firstname}</td>
                         <td>{hasta.lastname}</td>
-                        <td>{hasta.birthdate}</td>
+                        <td>{hasta.birthdate.slice(0,10)}</td>
                         <td>
                             <button onClick={() => handleGuncellemeClick(hasta)}>Düzenle</button>
                             <button onClick={() => handleHastaSil(hasta.id)}>Sil</button>
