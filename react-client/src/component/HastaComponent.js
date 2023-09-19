@@ -9,12 +9,7 @@ function HastaComponent() {
         lastname: '',
         birthdate: ''
     });
-    const [guncellenecekHasta, setGuncellenecekHasta] = useState({
-        id:'',
-        firstname: '',
-        lastname: '',
-        birthdate: ''
-    });
+    const [guncellenecekHasta, setGuncellenecekHasta] = useState(null);
 
     useEffect(() => {
         refreshHastaListesi();
@@ -53,7 +48,6 @@ function HastaComponent() {
 
     const handleGuncellemeClick = (hasta) => {
         setGuncellenecekHasta(hasta);
-
     }
 
     const handleHastaGuncelle = () => {
